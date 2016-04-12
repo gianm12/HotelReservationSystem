@@ -56,38 +56,12 @@ public class AvailableRooms_Servlet extends HttpServlet {
 			java.util.Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateString);
 			java.sql.Date endDateSQL = new java.sql.Date(endDate.getTime());
 			
+			ArrayList<RoomInformationViewBean> roomsInfo = AvailableRooms.allRoomAvailable(startDateSQL, endDateSQL);
 			
-			RoomInformationViewBean roomsInfo = AvailableRooms.allRoomAvailable(startDateSQL, endDateSQL);
 			
-			System.out.println("this is the view bean in the servlet: "+ roomsInfo.getBedType());
-			request.setAttribute("roomInformationViewBean", roomsInfo);
-			request.getSession().setAttribute("roomInformationViewBean",roomsInfo );
-			this.getServletConfig().getServletContext().setAttribute("roomInformationViewBean",roomsInfo );
 
+			request.setAttribute("RoomInformationViewBeanArrayList", roomsInfo);
 			
-			request.setAttribute("roomBedTypes", roomsInfo.getBedType());
-			
-			
-			
-			
-//			
-//			
-//			roomInformationViewBean.setAirConditioning(roomsInfo.get(0).getAirConditioning());
-//			System.out.println("in servlet, putting this in view bean: " + roomInformationViewBean.getAirConditioning());			
-//			
-//			
-//			request.setAttribute("ac", roomInformationViewBean.getAirConditioning());
-//			request.getSession().setAttribute("ac", roomInformationViewBean.getAirConditioning());
-//			this.getServletConfig().getServletContext().setAttribute("ac", roomInformationViewBean.getAirConditioning());
-//			
-//			
-//			request.setAttribute("roomInformationViewBean",roomInformationViewBean );
-//			request.getSession().setAttribute("roomInformationViewBean",roomInformationViewBean );
-//			this.getServletConfig().getServletContext().setAttribute("roomInformationViewBean",roomInformationViewBean );
-
-//			
-//			request.setAttribute("arrayList", roomsInfo);
-//			
 			
 			request.getRequestDispatcher("/Page2.jsp").forward(request, response);
 
