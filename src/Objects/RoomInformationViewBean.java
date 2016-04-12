@@ -1,6 +1,7 @@
 package Objects;
 
-public class RoomInformation {
+public class RoomInformationViewBean implements java.io.Serializable {
+
 	private int sizeOfRoom;
 	private int numberOfBeds;
 	private double priceOfRoom=0.00;
@@ -28,7 +29,7 @@ public class RoomInformation {
 	//Update 4/11/16
 	private Boolean isRoomAvailable;
 	//end of update 4/11/16
-	
+
 	public int getSizeOfRoom() {
 		return sizeOfRoom;
 	}
@@ -73,7 +74,7 @@ public class RoomInformation {
 	}
 	public String getAvailableDate() {
 		return availableDate.getWholeDate();
-		
+
 	}
 	public void setAvailableDate(Date availableDate) {
 		this.availableDate = availableDate;
@@ -161,11 +162,12 @@ public class RoomInformation {
 	}
 	public void setTransactionNumber(int transactionNumber) {
 		this.transactionNumber = transactionNumber;
-	}
+	}	
 	public Boolean getIsRoomAvailable() {
 		return isRoomAvailable;
 	}
 	public void setIsRoomAvailable(Boolean isRoomAvailable) {
 		this.isRoomAvailable = isRoomAvailable;
 	}	
+
 }

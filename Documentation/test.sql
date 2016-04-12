@@ -1,0 +1,1 @@
+SELECT * FROM availableroomsdb.available_rooms;
