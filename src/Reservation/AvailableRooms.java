@@ -11,7 +11,7 @@ import Objects.RoomInformationViewBean;
 
 public class AvailableRooms {
 
-	public static ArrayList<RoomInformationViewBean> allRoomAvailable(java.sql.Date startDate, java.sql.Date endDate) throws SQLException {
+	public static RoomInformationViewBean allRoomAvailable(java.sql.Date startDate, java.sql.Date endDate) throws SQLException {
 		/*
 		RoomInformation[] availableRooms = new RoomInformation[3];
 		System.out.println(availableRooms.length);
@@ -81,7 +81,7 @@ public class AvailableRooms {
 				System.out.println("Extra Features: " + roomInformation.getExtraFeatures());
 				roomInformationViewBean.setExtraFeatures(roomInformation.getExtraFeatures());
 				System.out.println("---------------------------------------------------");
-				roomInformationViewBeanArrayList.add(roomInformationViewBean);
+				//roomInformationViewBeanArrayList.add(roomInformationViewBean);
 			}
 			else
 			{
@@ -89,7 +89,7 @@ public class AvailableRooms {
 				System.out.println("---------------------------------------------------");
 			}
 		}
-		return roomInformationViewBeanArrayList;
+		return roomInformationViewBean;
 	}
 
 	private static Boolean checkForAvailability(RoomInformation roomInformation, java.sql.Date startDate, java.sql.Date endDate) {
