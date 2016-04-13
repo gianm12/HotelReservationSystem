@@ -41,10 +41,13 @@ public class AvailableRooms_Servlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.getWriter().append("\n /n \n           asdfasdf             inside servlet!");
-		System.out.println("inside servlet!");
-		RoomInformationViewBean roomInformationViewBean = new RoomInformationViewBean();
-		
-		
+		System.out.println("inside servlet!");		
+		try {
+			retrievePageParameters(request, response);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			String startDateString =  request.getParameter("startDate");
 			System.out.println("servlet - this is the start date: "+ startDateString);
@@ -56,39 +59,41 @@ public class AvailableRooms_Servlet extends HttpServlet {
 			java.util.Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateString);
 			java.sql.Date endDateSQL = new java.sql.Date(endDate.getTime());
 			
+
 			ArrayList<RoomInformationViewBean> roomsInfo = AvailableRooms.allRoomAvailable(startDateSQL, endDateSQL);
 			
-			
-
 			request.setAttribute("RoomInformationViewBeanArrayList", roomsInfo);
-			
-			
 			request.getRequestDispatcher("/Page2.jsp").forward(request, response);
 
-
 		} catch (SQLException | ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 
 		//response.sendRedirect("Page2.jsp");
 		
-		
 		/*
 		request.setAttribute("roomInformationViewBean",RoomInformationViewBean );
 		request.getSession().setAttribute("roomInformationViewBean",RoomInformationViewBean );
 		this.getServletConfig().getServletContext().setAttribute("roomInformationViewBean",RoomInformationViewBean );
 		 */
-
-		/*
-		request.setAttribute("sharedId", shared); // add to request
-		request.getSession().setAttribute("sharedId", shared); // add to session
-		this.getServletConfig().getServletContext().setAttribute("sharedId", shared); /
-
-		 */
-
 		
+	}
+
+	private void retrievePageParameters(HttpServletRequest request, HttpServletResponse response) throws ParseException {
+		/*
+		 * Add this in this function later and remove from the doGet
+		String startDateString =  request.getParameter("startDate");
+		System.out.println("servlet - this is the start date: "+ startDateString);
+		Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateString);
+		java.sql.Date startDateSQL = new java.sql.Date(startDate.getTime());
+		
+		String endDateString = request.getParameter("endDate");
+		System.out.println("servlet - this is the start date: "+ endDateString);
+		java.util.Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateString);
+		java.sql.Date endDateSQL = new java.sql.Date(endDate.getTime());
+		
+		*/
 	}
 
 	/**
