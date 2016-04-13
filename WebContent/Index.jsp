@@ -20,11 +20,22 @@ Enter the start date:
 Enter the end date:
 <input type = "date" name ="endDate"> </input> <br>
 
-<a href = "Page2.jsp">View all available rooms</a>
+<a href = "Page2.jsp">View all available rooms</a> </br>
 
-<input type="submit" value ="View all available rooms" name= "Page2.jsp">
 
-<input type="submit" value="View All Available Rooms">
+
+Rooms: </br>
+<select>
+<option value ="onePerson"> 1</option>
+<option value="twoPeople"> 2</option>
+<option value ="threePeople">3</option>
+<option value = "fourPeople">4</select>
+</select> </br>
+
+
+<input type="submit" value ="View available rooms" name= "Page2.jsp"></br>
+
+<input type="submit" value="View All Available Rooms"> </br>
 
 </form>
 </div>
