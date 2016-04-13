@@ -9,6 +9,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Work/Git Hub/JARS/apache-tomcat-8.0.24/apache-tomcat-8.0.24/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Work/Git Hub/JARS/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

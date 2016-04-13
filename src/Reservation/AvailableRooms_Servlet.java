@@ -59,24 +59,8 @@ public class AvailableRooms_Servlet extends HttpServlet {
 			ArrayList<RoomInformationViewBean> roomsInfo = AvailableRooms.allRoomAvailable(startDateSQL, endDateSQL);
 			
 			
-			request.setAttribute("RoomInformationViewBean", roomsInfo);
-			
-			
-			roomInformationViewBean.setAirConditioning(roomsInfo.get(0).getAirConditioning());
-			System.out.println("in servlet, putting this in view bean: " + roomInformationViewBean.getAirConditioning());			
-			
-			
-			request.setAttribute("ac", roomInformationViewBean.getAirConditioning());
-			request.getSession().setAttribute("ac", roomInformationViewBean.getAirConditioning());
-			this.getServletConfig().getServletContext().setAttribute("ac", roomInformationViewBean.getAirConditioning());
-			
-			
-			request.setAttribute("roomInformationViewBean",roomInformationViewBean );
-			request.getSession().setAttribute("roomInformationViewBean",roomInformationViewBean );
-			this.getServletConfig().getServletContext().setAttribute("roomInformationViewBean",roomInformationViewBean );
 
-			
-			request.setAttribute("arrayList", roomsInfo);
+			request.setAttribute("RoomInformationViewBeanArrayList", roomsInfo);
 			
 			
 			request.getRequestDispatcher("/Page2.jsp").forward(request, response);

@@ -42,10 +42,11 @@ public class AvailableRooms {
 		RoomInformationViewBean roomInformationViewBean = new RoomInformationViewBean();
 		ArrayList<RoomInformationViewBean> roomInformationViewBeanArrayList = new ArrayList<RoomInformationViewBean>();
 		
+		roomInformationViewBeanArrayList = new ArrayList<RoomInformationViewBean>();
 		for (RoomInformation roomInformation : allRoomsInformation) {
 			if(checkForAvailability(roomInformation, startDate, endDate))
 			{
-				roomInformationViewBeanArrayList = new ArrayList<RoomInformationViewBean>();
+				roomInformationViewBean = new RoomInformationViewBean();
 				System.out.println("Room is available in the if statement...");
 				roomInformationViewBean.setIsRoomAvailable(roomInformation.getIsRoomAvailable());
 				System.out.println("Transaction Number: " +roomInformation.getTransactionNumber());
@@ -89,6 +90,8 @@ public class AvailableRooms {
 				System.out.println("---------------------------------------------------");
 			}
 		}
+		
+		System.out.println("AvailableRooms -> this is the size of arraylist here: " + roomInformationViewBeanArrayList.size());
 		return roomInformationViewBeanArrayList;
 	}
 

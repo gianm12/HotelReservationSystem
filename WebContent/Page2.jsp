@@ -21,81 +21,21 @@
 
 	AC:
 	<%
-		String shared = (String) request.getAttribute("ac");
-		String shared1 = (String) request.getSession().getAttribute("ac");
-		String shared2 = (String) this.getServletConfig().getServletContext().getAttribute("ac");
-	%>
-	<%
-		out.println(shared);
-	%></br> whole object:
-	<%
-		RoomInformationViewBean obj = (RoomInformationViewBean) request.getAttribute("roomInformationViewBean");
-		RoomInformationViewBean obj1 = (RoomInformationViewBean) request.getSession()
-				.getAttribute("roomInformationViewBean");
-		RoomInformationViewBean obj2 = (RoomInformationViewBean) this.getServletConfig().getServletContext()
-				.getAttribute("roomInformationViewBean");
-
-		out.println("whole object: " + obj);
-	%></br> getting the ac from object:
-	<%
-		String ac = obj.getAirConditioning();
-		out.println("this is the ac from object: " + ac);
-	%>
-
-	</br>
-
-	<%
-		RoomInformationViewBean rooms = (RoomInformationViewBean) request.getAttribute("roomInformationViewBean");
-		out.println("new try: " + rooms.getAirConditioning());
-	%>
-	</br>
-	<%
-		ArrayList<RoomInformation> arrayListRoomsAvailable = (ArrayList<RoomInformation>) request.getAttribute("arrayList");
+		//	String shared = (String) request.getAttribute("ac");
+		//String shared1 = (String) request.getSession().getAttribute("ac");
+		//String shared2 = (String) this.getServletConfig().getServletContext().getAttribute("ac");
 	%>
 
 	<%
-		for (RoomInformation roomsAvailable : arrayListRoomsAvailable) {
-			out.println("Type of bed: " + (String) roomsAvailable.getBedType() + "\n");
-			out.println("\n");
-			out.println("Mini Fridge: " + roomsAvailable.getMiniFridge());
-			out.println("\n");
-			out.println("number of room: " + (Integer) roomsAvailable.getRoomNumber() + "\n");
-			out.println("\n");
-
+		ArrayList<RoomInformationViewBean> roomInformationViewBeanArrayList = (ArrayList<RoomInformationViewBean>) request.getAttribute("RoomInformationViewBeanArrayList");
+		for (RoomInformationViewBean availableRoomInfo : roomInformationViewBeanArrayList) {
+			out.println("Bed type: " + (String) availableRoomInfo.getBedType());
+			out.println("Room Number: " + (Integer) availableRoomInfo.getRoomNumber() );
+			out.println("Transaction Number: " + (Integer) availableRoomInfo.getTransactionNumber());
+			out.println("Size of Room: " + (Integer) availableRoomInfo.getSizeOfRoom());
+			out.println("Price of Room: " + (Double) availableRoomInfo.getPriceOfRoom());
 		}
 	%>
-	
-	<%
-	for (RoomInformation roomsAvailable : arrayListRoomsAvailable) {
-		out.println("Room Number: " + roomsAvailable.getRoomNumber());
-		out.println("Transaction Number: " + roomsAvailable.getTransactionNumber());
-	}
-	
-	
-	%>
-	
-	<%if(rooms.getIsRoomAvailable())
-		
-		
-		
-		
-	%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>
